@@ -1,0 +1,2438 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>RIKI STORE | Premium Digital Store</title>
+
+  <meta name="description" content="RIKI STORE - Produk digital premium: AM Prem, Jasa Logo, dan APK Bioskop." />
+  <meta name="keywords" content="riki store, am prem, jasa logo, apk bioskop, produk digital" />
+  <meta name="author" content="RIKI STORE" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #030303;
+      --bg2: #090909;
+      --panel: #0d0d0d;
+      --panel2: #151515;
+      --text: #ffffff;
+      --soft: rgba(255,255,255,.74);
+      --muted: rgba(255,255,255,.42);
+      --low: rgba(255,255,255,.13);
+      --line: rgba(255,255,255,.12);
+      --line2: rgba(255,255,255,.25);
+      --grid: rgba(255,255,255,.055);
+      --accent: #ffffff;
+      --accent2: #a9a9a9;
+      --accent3: #d8d8d8;
+      --btn-text: #000000;
+      --green: #22c55e;
+      --yellow: #facc15;
+      --shadow: 0 28px 80px rgba(0,0,0,.5);
+    }
+
+    body.red-theme {
+      --bg: #070101;
+      --bg2: #140504;
+      --panel: #120606;
+      --panel2: #210a08;
+      --text: #fff8f2;
+      --soft: rgba(255,240,230,.78);
+      --muted: rgba(255,226,215,.48);
+      --low: rgba(255,115,45,.17);
+      --line: rgba(255,130,50,.18);
+      --line2: rgba(255,130,50,.36);
+      --grid: rgba(255,100,35,.07);
+      --accent: #ff3b30;
+      --accent2: #ff9d2e;
+      --accent3: #ffd2b2;
+      --btn-text: #ffffff;
+    }
+
+    body.blue-theme {
+      --bg: #020714;
+      --bg2: #07152a;
+      --panel: #071426;
+      --panel2: #0b1e3a;
+      --text: #f5fbff;
+      --soft: rgba(230,246,255,.8);
+      --muted: rgba(220,240,255,.48);
+      --low: rgba(75,160,255,.17);
+      --line: rgba(90,170,255,.18);
+      --line2: rgba(120,190,255,.36);
+      --grid: rgba(80,160,255,.07);
+      --accent: #3b8cff;
+      --accent2: #ffffff;
+      --accent3: #c9e8ff;
+      --btn-text: #061225;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 78px;
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at 15% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 32%),
+        radial-gradient(circle at 85% 10%, color-mix(in srgb, var(--accent2) 9%, transparent), transparent 34%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 44px 44px;
+      pointer-events: none;
+      z-index: 0;
+      mask-image: linear-gradient(to bottom, #000, transparent 88%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 55% at 50% 0%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 72%),
+        radial-gradient(ellipse 90% 80% at 50% 0%, transparent 45%, var(--bg) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .wrap {
+      width: min(1120px, 92%);
+      margin: auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    #bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      width: 0;
+      z-index: 9999;
+      background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent3));
+      box-shadow: 0 0 20px color-mix(in srgb, var(--accent) 50%, transparent);
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      z-index: 500;
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .hdr {
+      height: 64px;
+      width: min(1120px, 92%);
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 13px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .logo-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 18px color-mix(in srgb, var(--accent) 70%, transparent);
+      animation: logoPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes logoPulse {
+      0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.28);
+        opacity: .55;
+      }
+    }
+
+    .logo-text {
+      background: linear-gradient(90deg, var(--text), var(--accent), var(--accent2), var(--text));
+      background-size: 260% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      animation: logoShine 4s ease-in-out infinite;
+    }
+
+    @keyframes logoShine {
+      0%, 100% {
+        background-position: 0% center;
+      }
+
+      50% {
+        background-position: 100% center;
+      }
+    }
+
+    .hdr-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      list-style: none;
+      margin-right: 4px;
+    }
+
+    .nav-links a {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      position: relative;
+      transition: .2s;
+      font-weight: 700;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--text);
+      transition: .25s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .live-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      height: 35px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 82%, transparent);
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px var(--green);
+      animation: livePulse 1.6s infinite;
+    }
+
+    @keyframes livePulse {
+      50% {
+        opacity: .35;
+      }
+    }
+
+    .theme-top {
+      height: 35px;
+      min-width: 86px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 18%, transparent), transparent 45%),
+        color-mix(in srgb, var(--panel) 84%, transparent);
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      transition: .22s ease;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .theme-top:hover {
+      transform: translateY(-2px);
+      border-color: var(--line2);
+      background:
+        radial-gradient(circle at top right, color-mix(in srgb, var(--accent) 26%, transparent), transparent 45%),
+        color-mix(in srgb, var(--panel2) 90%, transparent);
+    }
+
+    .theme-top span {
+      display: block;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      line-height: 1;
+      margin-bottom: 2px;
+      font-weight: 700;
+    }
+
+    .theme-top b {
+      display: block;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 12px;
+      color: var(--text);
+      line-height: 1;
+    }
+
+    .menu-btn {
+      height: 35px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 84%, transparent);
+      color: var(--soft);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      padding: 0 12px;
+      transition: .2s;
+      font-weight: 700;
+    }
+
+    .menu-btn:hover {
+      border-color: var(--line2);
+      color: var(--text);
+      background: var(--low);
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 600;
+      background: rgba(0,0,0,.68);
+      opacity: 0;
+      visibility: hidden;
+      transition: .28s;
+    }
+
+    .overlay.on {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 700;
+      height: 100dvh;
+      width: 292px;
+      background: color-mix(in srgb, var(--bg) 96%, #000);
+      border-left: 1px solid var(--line);
+      transform: translateX(100%);
+      transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .panel.on {
+      transform: none;
+    }
+
+    .panel-head {
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .panel-head h3 {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 13px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .panel-close {
+      width: 31px;
+      height: 31px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    .panel-close:hover {
+      color: var(--text);
+      border-color: var(--line2);
+    }
+
+    .panel-nav {
+      padding: 10px;
+      flex: 1;
+      overflow-y: auto;
+    }
+
+    .panel-link {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 12px;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      text-align: left;
+      cursor: pointer;
+      transition: .2s;
+      font-weight: 700;
+    }
+
+    .panel-link:hover {
+      background: var(--low);
+      color: var(--text);
+    }
+
+    .panel-order {
+      margin: 10px;
+      justify-content: center;
+      border: 1px solid var(--accent);
+      background: var(--accent);
+      color: var(--btn-text);
+      width: calc(100% - 20px);
+    }
+
+    .panel-order:hover {
+      color: var(--btn-text);
+      background: color-mix(in srgb, var(--accent) 88%, transparent);
+    }
+
+    .panel-foot {
+      padding: 18px;
+      border-top: 1px solid var(--line);
+      text-align: center;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 112px 0 68px;
+      display: flex;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 390px;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 76%, transparent);
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      animation: fadeUp .85s ease both .12s;
+      font-weight: 700;
+    }
+
+    .hero-title {
+      font-size: clamp(58px, 10vw, 128px);
+      font-weight: 700;
+      line-height: .88;
+      letter-spacing: -.05em;
+      margin-bottom: 26px;
+      animation: fadeUp .85s ease both .25s;
+    }
+
+    .hero-title span {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1px color-mix(in srgb, var(--accent) 45%, transparent);
+    }
+
+    .typed {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 14px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      animation: fadeUp .85s ease both .38s;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+
+    .typed::before {
+      content: ">";
+      color: var(--accent);
+    }
+
+    .typed span {
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 1px solid var(--accent);
+      animation: typing 5s steps(38) infinite;
+    }
+
+    @keyframes typing {
+      0% { width: 0; }
+      40% { width: 100%; }
+      65% { width: 100%; }
+      90% { width: 0; }
+      100% { width: 0; }
+    }
+
+    .hero-desc {
+      max-width: 560px;
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.95;
+      margin-bottom: 28px;
+      animation: fadeUp .85s ease both .5s;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-bottom: 30px;
+      animation: fadeUp .85s ease both .62s;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 22px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--soft);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: .22s;
+      font-weight: 700;
+    }
+
+    .btn:hover {
+      color: var(--text);
+      border-color: var(--line2);
+      transform: translateY(-2px);
+    }
+
+    .btn-main {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--btn-text);
+    }
+
+    .btn-main:hover {
+      color: var(--btn-text);
+      background: color-mix(in srgb, var(--accent) 88%, transparent);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 62%, transparent);
+      max-width: 520px;
+      animation: fadeUp .85s ease both .72s;
+    }
+
+    .stat {
+      padding: 15px 10px;
+      text-align: center;
+      border-right: 1px solid var(--line);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat b {
+      display: block;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .terminal-card {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 76%, transparent);
+      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
+      animation: fadeUp .85s ease both .45s;
+      overflow: hidden;
+    }
+
+    .terminal-head {
+      height: 42px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 14px;
+      background: var(--low);
+    }
+
+    .tl {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .tl.r { background: #f87171; }
+    .tl.y { background: #facc15; }
+    .tl.g { background: #4ade80; }
+
+    .terminal-head small {
+      margin-left: 6px;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      font-weight: 700;
+    }
+
+    .terminal-body {
+      padding: 18px;
+    }
+
+    .terminal-label {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      margin-bottom: 13px;
+      font-weight: 700;
+    }
+
+    .feature-list {
+      list-style: none;
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+    }
+
+    .feature-list li {
+      background: var(--bg);
+      padding: 13px;
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .feature-list i {
+      height: 34px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .feature-list b {
+      display: block;
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .feature-list span span {
+      display: block;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      line-height: 1.5;
+      font-weight: 600;
+    }
+
+    .banner-strip {
+      position: relative;
+      z-index: 2;
+      overflow: hidden;
+      border-block: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 56%, transparent);
+    }
+
+    .ticker {
+      display: flex;
+      width: max-content;
+      animation: ticker 24s linear infinite;
+    }
+
+    .ticker span {
+      padding: 13px 26px;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    @keyframes ticker {
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 0 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section {
+      position: relative;
+      z-index: 2;
+      padding: 92px 0;
+    }
+
+    .section-grid {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 76px;
+      align-items: start;
+    }
+
+    .sec-label {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 7px;
+      font-weight: 700;
+    }
+
+    .sec-title {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.12;
+      margin-bottom: 20px;
+      letter-spacing: -.03em;
+    }
+
+    .sec-text {
+      max-width: 640px;
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.95;
+      margin-bottom: 15px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      padding: 6px 13px;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .products-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 38px;
+    }
+
+    .products-count {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      background:
+        radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 42%),
+        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent2) 10%, transparent), transparent 38%),
+        color-mix(in srgb, var(--panel) 82%, transparent);
+      padding: 24px;
+      transition: .28s;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 14px 42px rgba(0,0,0,.22);
+    }
+
+    .product-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+      pointer-events: none;
+      opacity: .9;
+    }
+
+    .product-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--line2);
+      background:
+        radial-gradient(circle at 50% -12%, color-mix(in srgb, var(--accent) 25%, transparent), transparent 44%),
+        radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--accent2) 14%, transparent), transparent 40%),
+        color-mix(in srgb, var(--panel2) 88%, transparent);
+      box-shadow: 0 20px 54px rgba(0,0,0,.28);
+    }
+
+    .p-photo {
+      width: 100%;
+      height: 220px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      margin-bottom: 22px;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 50% 10%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 44%),
+        color-mix(in srgb, var(--panel2) 78%, transparent);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .p-photo::after {
+      display: none;
+    }
+
+    .p-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+      filter: none;
+      padding: 10px;
+      transition: transform .35s ease, filter .35s ease;
+    }
+
+    .product-card:hover .p-photo img {
+      transform: scale(1.04);
+      filter: contrast(1.04) brightness(1.02);
+    }
+
+    .p-top,
+    .p-sub,
+    .p-desc,
+    .p-tags {
+      display: none;
+    }
+
+    .p-name {
+      font-size: clamp(21px, 2vw, 28px);
+      font-weight: 800;
+      margin-bottom: 10px;
+      text-align: center;
+      color: var(--text);
+      line-height: 1.22;
+      letter-spacing: -.02em;
+    }
+
+    .p-price {
+      font-size: clamp(18px, 1.9vw, 25px);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: var(--accent);
+      text-shadow: 0 0 18px color-mix(in srgb, var(--accent) 28%, transparent);
+    }
+
+    .p-price span {
+      display: none;
+    }
+
+    .p-actions {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .p-actions .btn {
+      padding: 16px 12px;
+      font-size: 13px;
+      border-radius: 20px;
+      font-weight: 800;
+      letter-spacing: .05em;
+    }
+
+    .p-actions .btn.btn-main {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--btn-text);
+      box-shadow: 0 12px 28px color-mix(in srgb, var(--accent) 20%, transparent);
+    }
+
+    .p-actions .btn.btn-main:hover {
+      background: color-mix(in srgb, var(--accent) 88%, transparent);
+      color: var(--btn-text);
+    }
+
+    .p-actions .btn-detail {
+      background: color-mix(in srgb, var(--panel2) 72%, transparent);
+      border-color: var(--line2);
+      color: var(--soft);
+      box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 9%, transparent);
+    }
+
+    .p-actions .btn-detail:hover {
+      color: var(--text);
+      border-color: var(--accent);
+      background: color-mix(in srgb, var(--accent) 14%, var(--panel2));
+    }
+
+    .payment-box {
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 70%, transparent);
+      padding: 22px;
+      text-align: center;
+    }
+
+    .payment-title {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .16em;
+      color: var(--muted);
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .payment-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .payment-row span {
+      border: 1px solid var(--line);
+      padding: 7px 13px;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: color-mix(in srgb, var(--panel2) 70%, transparent);
+      font-weight: 700;
+    }
+
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .testi-card {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 72%, transparent);
+      padding: 24px;
+    }
+
+    .stars {
+      color: var(--yellow);
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .testi-card p {
+      color: var(--soft);
+      font-size: 13px;
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .user b {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .user span {
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 10px;
+      max-width: 820px;
+    }
+
+    .faq-item {
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--panel) 54%, transparent);
+      overflow: hidden;
+      transition: .25s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--line2);
+      background: color-mix(in srgb, var(--panel) 68%, transparent);
+    }
+
+    .faq-btn {
+      width: 100%;
+      padding: 15px 16px;
+      background: transparent;
+      border: 0;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .faq-btn i {
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--line);
+      display: grid;
+      place-items: center;
+      color: var(--muted);
+      font-style: normal;
+      transition: .25s;
+      flex-shrink: 0;
+    }
+
+    .faq-btn.open i {
+      transform: rotate(45deg);
+      color: var(--accent);
+      border-color: var(--line2);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .28s ease;
+    }
+
+    .faq-body.open {
+      max-height: 180px;
+    }
+
+    .faq-body p {
+      padding: 0 16px 16px;
+      color: var(--soft);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 13px;
+      line-height: 1.65;
+      font-weight: 600;
+    }
+
+    .cta-box {
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 90% 10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 35%),
+        color-mix(in srgb, var(--panel) 76%, transparent);
+      padding: 32px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.05;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -.03em;
+    }
+
+    .cta-box p {
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 22px;
+    }
+
+    .info-card {
+      border: 1px solid var(--line);
+      padding: 14px;
+      background: color-mix(in srgb, var(--bg) 62%, transparent);
+      margin-bottom: 9px;
+    }
+
+    .info-card small {
+      display: block;
+      font-family: "Rajdhani", sans-serif;
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      font-weight: 700;
+    }
+
+    .info-card b {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    footer {
+      position: relative;
+      z-index: 2;
+      border-top: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 94%, transparent);
+      padding: 28px 0 105px;
+      text-align: center;
+      color: var(--muted);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 800;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transition: .25s;
+    }
+
+    .modal.on {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-box {
+      width: min(520px, 100%);
+      border: 1px solid var(--line);
+      background: var(--bg);
+      transform: translateY(18px) scale(.96);
+      transition: .3s cubic-bezier(.34,1.56,.64,1);
+      box-shadow: var(--shadow);
+    }
+
+    .modal.on .modal-box {
+      transform: none;
+    }
+
+    .modal-head {
+      padding: 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-head strong {
+      font-family: "Rajdhani", sans-serif;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .modal-close {
+      width: 30px;
+      height: 30px;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .modal-body {
+      padding: 22px;
+    }
+
+    .modal-price {
+      font-family: "Rajdhani", sans-serif;
+      color: var(--accent);
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+
+    .modal-body p {
+      color: var(--soft);
+      font-size: 14px;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+
+    .modal-list {
+      display: grid;
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      margin-bottom: 22px;
+    }
+
+    .modal-list div {
+      background: var(--bg);
+      padding: 12px;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 12px;
+      color: var(--soft);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .modal-list div::before {
+      content: "✓ ";
+      color: var(--green);
+    }
+
+    .floating-mascot {
+      position: fixed;
+      right: 14px;
+      bottom: 14px;
+      width: 178px;
+      z-index: 450;
+      border: 1px solid var(--line);
+      background: color-mix(in srgb, var(--bg) 84%, transparent);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 9px 9px 12px;
+      box-shadow: 0 18px 45px rgba(0,0,0,.42);
+      overflow: hidden;
+    }
+
+    .mini-mood {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 9px;
+      border: 1px solid var(--line);
+      color: var(--soft);
+      font-family: "Rajdhani", sans-serif;
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      white-space: nowrap;
+      font-weight: 700;
+    }
+
+    .walk-stage {
+      height: 92px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .walk-ground {
+      position: absolute;
+      left: 6px;
+      right: 6px;
+      bottom: 3px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--line2), transparent);
+    }
+
+    .mini-twins {
+      position: absolute;
+      bottom: 4px;
+      left: 50%;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      gap: 6px;
+      animation: twinsWalk 7s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    @keyframes twinsWalk {
+      0% { transform: translateX(-50%) translateX(-22px); }
+      20% { transform: translateX(-50%) translateX(18px); }
+      30% { transform: translateX(-50%) translateX(18px) scaleX(-1); }
+      50% { transform: translateX(-50%) translateX(-20px) scaleX(-1); }
+      60% { transform: translateX(-50%) translateX(-20px) scaleX(1); }
+      100% { transform: translateX(-50%) translateX(-22px) scaleX(1); }
+    }
+
+    .mini-kid {
+      width: 62px;
+      position: relative;
+      animation: kidStep .55s ease-in-out infinite;
+      transform-origin: center bottom;
+    }
+
+    .kid-two {
+      animation-delay: .18s;
+    }
+
+    @keyframes kidStep {
+      0%,100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-4px) rotate(1deg); }
+    }
+
+    .mini-head {
+      width: 47px;
+      height: 45px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 25%, #ffe4bf, #ffc58d 72%);
+      border: 2px solid #24150f;
+      position: relative;
+      z-index: 3;
+      box-shadow: inset 0 -3px 0 rgba(0,0,0,.06);
+    }
+
+    .mini-ear {
+      width: 9px;
+      height: 13px;
+      border-radius: 50%;
+      background: #ffc58d;
+      border: 2px solid #24150f;
+      position: absolute;
+      top: 17px;
+      z-index: -1;
+    }
+
+    .left-ear { left: -7px; }
+    .right-ear { right: -7px; }
+
+    .mini-curl {
+      width: 15px;
+      height: 15px;
+      border: 3px solid #24150f;
+      border-left: 0;
+      border-bottom: 0;
+      border-radius: 50%;
+      position: absolute;
+      top: -9px;
+      left: 27px;
+      transform: rotate(-20deg);
+      z-index: 6;
+      animation: hairWiggle 1s ease-in-out infinite;
+    }
+
+    @keyframes hairWiggle {
+      50% { transform: rotate(12deg); }
+    }
+
+    .mini-eye {
+      width: 8px;
+      height: 10px;
+      border-radius: 50%;
+      background: #1b130d;
+      position: absolute;
+      top: 18px;
+    }
+
+    .mini-eye.l { left: 13px; }
+    .mini-eye.r { right: 13px; }
+
+    .mini-shine {
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: #fff;
+      position: absolute;
+      top: 20px;
+      z-index: 4;
+    }
+
+    .mini-shine.l { left: 15px; }
+    .mini-shine.r { right: 16px; }
+
+    .mini-nose {
+      width: 7px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(164,83,42,.25);
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mini-smile {
+      width: 18px;
+      height: 9px;
+      border-bottom: 3px solid #24150f;
+      border-radius: 0 0 99px 99px;
+      position: absolute;
+      top: 31px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .mini-cheek {
+      width: 8px;
+      height: 5px;
+      border-radius: 50%;
+      background: rgba(255,90,90,.32);
+      position: absolute;
+      top: 29px;
+    }
+
+    .mini-cheek.l { left: 6px; }
+    .mini-cheek.r { right: 6px; }
+
+    .mini-body {
+      width: 44px;
+      height: 36px;
+      margin: -5px auto 0;
+      border: 2px solid #111;
+      border-radius: 13px 13px 10px 10px;
+      display: grid;
+      place-items: center;
+      position: relative;
+      z-index: 2;
+      box-shadow: inset 0 -4px 0 rgba(0,0,0,.09);
+    }
+
+    .mini-body span {
+      font-size: 1.25rem;
+      font-weight: 900;
+      line-height: 1;
+      text-shadow: 0 1px 0 rgba(255,255,255,.2);
+    }
+
+    .yellow-shirt {
+      background: linear-gradient(180deg, #ffe456, #ffc400);
+      color: #1558c7;
+    }
+
+    .blue-shirt {
+      background: linear-gradient(180deg, #49b2ff, #0878df);
+      color: #ffd93d;
+    }
+
+    .arm {
+      position: absolute;
+      width: 16px;
+      height: 6px;
+      background: #ffc58d;
+      border: 2px solid #111;
+      top: 54px;
+      z-index: 1;
+      border-radius: 99px;
+      transform-origin: center;
+      animation: armSwing .55s ease-in-out infinite;
+    }
+
+    .arm.left { left: 8px; }
+    .arm.right { right: 8px; animation-delay: .25s; }
+
+    @keyframes armSwing {
+      0%,100% { transform: rotate(22deg); }
+      50% { transform: rotate(-22deg); }
+    }
+
+    .leg {
+      position: absolute;
+      bottom: -3px;
+      width: 12px;
+      height: 10px;
+      background: #1d1d1d;
+      border-radius: 0 0 8px 8px;
+      z-index: 1;
+      animation: legWalk .55s ease-in-out infinite;
+    }
+
+    .leg.left { left: 20px; }
+    .leg.right { right: 20px; animation-delay: .27s; }
+
+    @keyframes legWalk {
+      0%,100% { transform: translateY(0) rotate(12deg); }
+      50% { transform: translateY(-2px) rotate(-12deg); }
+    }
+
+    .mini-sweat,
+    .mini-heat,
+    .mini-cold {
+      display: none;
+      position: absolute;
+      pointer-events: none;
+      z-index: 8;
+    }
+
+    .mini-sweat {
+      top: 8px;
+      right: -10px;
+      font-size: .68rem;
+    }
+
+    .mini-heat,
+    .mini-cold {
+      top: -18px;
+      right: -4px;
+      font-size: .78rem;
+      animation: floatIcon 1s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      50% { transform: translateY(-5px) rotate(8deg); }
+    }
+
+    body.red-theme .mini-kid {
+      animation: miniHot .38s ease-in-out infinite;
+    }
+
+    body.red-theme .mini-head {
+      background: radial-gradient(circle at 35% 25%, #ffd0b2, #ff9f78 72%);
+    }
+
+    body.red-theme .mini-cheek {
+      background: rgba(255, 0, 0, .48);
+    }
+
+    body.red-theme .mini-smile {
+      width: 10px;
+      height: 11px;
+      border: 2px solid #24150f;
+      border-radius: 50%;
+      top: 31px;
+    }
+
+    body.red-theme .mini-sweat,
+    body.red-theme .mini-heat {
+      display: block;
+    }
+
+    @keyframes miniHot {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(3deg); }
+      75% { transform: rotate(-3deg); }
+    }
+
+    body.blue-theme .mini-kid {
+      animation: miniCold .24s linear infinite;
+    }
+
+    body.blue-theme .mini-head {
+      background: radial-gradient(circle at 35% 25%, #e2f6ff, #b8e4ff 72%);
+    }
+
+    body.blue-theme .mini-eye {
+      height: 3px;
+      border-radius: 99px;
+      top: 22px;
+    }
+
+    body.blue-theme .mini-shine {
+      display: none;
+    }
+
+    body.blue-theme .mini-smile {
+      width: 14px;
+      height: 3px;
+      border-bottom: 3px dashed #24150f;
+      top: 32px;
+    }
+
+    body.blue-theme .mini-cheek {
+      background: rgba(80,170,255,.32);
+    }
+
+    body.blue-theme .mini-cold {
+      display: block;
+    }
+
+    @keyframes miniCold {
+      25% { transform: translateX(-1px); }
+      75% { transform: translateX(1px); }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(22px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .75s cubic-bezier(.2,1,.3,1), transform .75s cubic-bezier(.2,1,.3,1);
+    }
+
+    .reveal.on {
+      opacity: 1;
+      transform: none;
+    }
+
+    .d1 { transition-delay: .08s; }
+    .d2 { transition-delay: .16s; }
+    .d3 { transition-delay: .24s; }
+
+    @media (max-width: 1000px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .terminal-card {
+        max-width: 480px;
+      }
+
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .hdr {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-links,
+      .live-pill {
+        display: none;
+      }
+
+      .theme-top {
+        min-width: 72px;
+        padding: 0 9px;
+      }
+
+      .theme-top span {
+        font-size: 8px;
+      }
+
+      .theme-top b {
+        font-size: 11px;
+      }
+
+      .hero {
+        padding: 96px 0 54px;
+      }
+
+      .hero-title {
+        font-size: clamp(54px, 18vw, 82px);
+      }
+
+      .typed span {
+        white-space: normal;
+        border-right: 0;
+        animation: none;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stat:last-child {
+        border-bottom: 0;
+      }
+
+      .divider {
+        margin: 0 24px;
+      }
+
+      .section {
+        padding: 68px 0;
+      }
+
+      .section-grid {
+        grid-template-columns: 1fr;
+        gap: 22px;
+      }
+
+      .products-head {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+
+      .product-card {
+        padding: 18px;
+        border-radius: 22px;
+      }
+
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .cta-box {
+        padding: 24px;
+      }
+
+      .floating-mascot {
+        width: 156px;
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .walk-stage {
+        height: 88px;
+      }
+
+      .mini-kid {
+        width: 56px;
+      }
+
+      .mini-head {
+        width: 43px;
+        height: 41px;
+      }
+
+      .mini-body {
+        width: 40px;
+        height: 33px;
+      }
+
+      .p-photo {
+        height: 145px;
+        border-radius: 18px;
+        margin-bottom: 16px;
+      }
+
+      .p-photo img {
+        padding: 8px;
+      }
+
+      .p-name {
+        font-size: 17px;
+      }
+
+      .p-price {
+        font-size: 15px;
+        margin-bottom: 14px;
+      }
+
+      .p-actions .btn {
+        padding: 13px 10px;
+        font-size: 12px;
+        border-radius: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="bar"></div>
+
+  <div id="overlay" class="overlay" onclick="closePanel()"></div>
+
+  <aside id="panel" class="panel">
+    <div class="panel-head">
+      <h3>Menu RIKI</h3>
+      <button class="panel-close" onclick="closePanel()">×</button>
+    </div>
+
+    <nav class="panel-nav">
+      <a href="#about" class="panel-link" onclick="closePanel()">01 — About</a>
+      <a href="#produk" class="panel-link" onclick="closePanel()">02 — Produk</a>
+      <a href="#testimoni" class="panel-link" onclick="closePanel()">03 — Testimoni</a>
+      <a href="#faq" class="panel-link" onclick="closePanel()">04 — FAQ</a>
+      <a href="#kontak" class="panel-link" onclick="closePanel()">05 — Kontak</a>
+      <a href="https://wa.me/6282320532450?text=Halo%20kak%2C%20saya%20mau%20order" target="_blank" class="panel-link panel-order">Order WhatsApp</a>
+    </nav>
+
+    <div class="panel-foot">RIKI STORE</div>
+  </aside>
+
+  <div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
+    <div class="modal-box">
+      <div class="modal-head">
+        <strong id="modalTitle">Produk</strong>
+        <button class="modal-close" onclick="closeModal()">×</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="modal-price" id="modalPrice"></div>
+        <p id="modalDesc"></p>
+        <div class="modal-list" id="modalList"></div>
+        <a class="btn btn-main" id="modalOrder" target="_blank" style="width:100%">Order Sekarang</a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="hdr">
+      <a href="#home" class="logo">
+        <span class="logo-dot"></span>
+        <span class="logo-text">RIKI STORE</span>
+      </a>
+
+      <div class="hdr-right">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#produk">Produk</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="live-pill">
+          <span class="live-dot"></span>
+          <span><span id="online">83</span> online</span>
+        </div>
+
+        <button class="theme-top" id="themeBtn" title="Ganti tema">
+          <span>Tema</span>
+          <b>Hitam</b>
+        </button>
+
+        <button class="menu-btn" onclick="openPanel()">Menu</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="wrap hero-grid">
+        <div>
+          <div class="hero-badge">RIKI STORE Digital Product</div>
+
+          <h1 class="hero-title">
+            RIKI
+            <span>STORE</span>
+          </h1>
+
+          <div class="typed">
+            <span>Produk digital premium, clean, cepat, dan fast respon</span>
+          </div>
+
+          <p class="hero-desc">
+            RIKI STORE menyediakan produk digital premium seperti AM Prem, Jasa Logo, dan APK Bioskop dengan tampilan store yang modern, rapi, dan profesional.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#produk" class="btn btn-main">Lihat Produk</a>
+            <a href="https://wa.me/6282320532450?text=Halo%20kak%2C%20saya%20mau%20order" target="_blank" class="btn">Order WhatsApp</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat"><b>5</b><span>Produk</span></div>
+            <div class="stat"><b>24H</b><span>Order</span></div>
+            <div class="stat"><b>Fast</b><span>Respon</span></div>
+          </div>
+        </div>
+
+        <div class="terminal-card">
+          <div class="terminal-head">
+            <span class="tl r"></span>
+            <span class="tl y"></span>
+            <span class="tl g"></span>
+            <small>riki.store.feature</small>
+          </div>
+
+          <div class="terminal-body">
+            <div class="terminal-label">Produk Populer</div>
+
+            <ul class="feature-list">
+              <li><i>AM</i><span><b>AM Prem</b><span>Premium editing untuk video.</span></span></li>
+              <li><i>LG</i><span><b>Jasa Logo</b><span>Custom design brand/store.</span></span></li>
+              <li><i>APK</i><span><b>APK Bioskop</b><span>Produk hiburan digital.</span></span></li>
+              <li><i>QR</i><span><b>APK QRIS Free</b><span>APK QRIS + menu jualan digital.</span></span></li>
+              <li><i>HD</i><span><b>APK HD Foto Unli</b><span>HD-in foto blur jadi jernih.</span></span></li>
+              <li><i>WA</i><span><b>Order WhatsApp</b><span>Pesan otomatis sesuai produk.</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="banner-strip">
+      <div class="ticker">
+        <span>RIKI STORE</span><span>AM PREM</span><span>JASA LOGO</span><span>APK BIOSKOP</span><span>APK QRIS FREE</span><span>APK HD FOTO UNLI</span><span>PREMIUM UI</span><span>FAST RESPON</span>
+        <span>RIKI STORE</span><span>AM PREM</span><span>JASA LOGO</span><span>APK BIOSKOP</span><span>APK QRIS FREE</span><span>APK HD FOTO UNLI</span><span>PREMIUM UI</span><span>FAST RESPON</span>
+      </div>
+    </div>
+
+    <section class="section" id="about">
+      <div class="wrap section-grid">
+        <div class="sec-label reveal">01 — About</div>
+
+        <div>
+          <h2 class="sec-title reveal d1">Store digital premium yang tetap ringan.</h2>
+          <p class="sec-text reveal d2">
+            Website ini dibuat dengan tampilan dark premium, card produk rapi, animasi smooth, tombol order langsung ke WhatsApp, dan maskot kecil yang selalu aktif di bagian bawah.
+          </p>
+          <p class="sec-text reveal d3">
+            
+          </p>
+
+          <div class="tag-row reveal d3">
+            <span class="tag">Premium Store</span>
+            <span class="tag">Clean UI</span>
+            <span class="tag">Fast Order</span>
+            <span class="tag">Tema Tersimpan</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" id="produk">
+      <div class="wrap">
+        <div class="products-head">
+          <div>
+            <div class="sec-label reveal">02 — Produk</div>
+            <h2 class="sec-title reveal d1" style="margin-bottom:0">Pilih produk yang kamu mau.</h2>
+          </div>
+          <div class="products-count reveal d2">5 produk ready</div>
+        </div>
+
+        <div class="products-grid" id="productGrid"></div>
+
+        <div class="payment-box reveal">
+          <div class="payment-title">Metode Pembayaran</div>
+          <div class="payment-row">
+            <span>DANA</span>
+            <span>GoPay</span>
+            <span>OVO</span>
+            <span>QRIS</span>
+            <span>BCA</span>
+            <span>BRI</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" id="testimoni">
+      <div class="wrap section-grid">
+        <div class="sec-label reveal">03 — Testimoni</div>
+
+        <div>
+          <h2 class="sec-title reveal d1">Kata pelanggan RIKI STORE.</h2>
+
+          <div class="testi-grid">
+            <div class="testi-card reveal d1">
+              <div class="stars">★★★★★</div>
+              <p>"Order AM Prem cepat, adminnya juga ramah."</p>
+              <div class="user"><div class="avatar">A</div><div><b>Andi</b><span>Pelanggan AM</span></div></div>
+            </div>
+
+            <div class="testi-card reveal d2">
+              <div class="stars">★★★★★</div>
+              <p>"Logo rapi, style-nya sesuai request."</p>
+              <div class="user"><div class="avatar">R</div><div><b>Raka</b><span>Pelanggan Logo</span></div></div>
+            </div>
+
+            <div class="testi-card reveal d3">
+              <div class="stars">★★★★★</div>
+              <p>"Toko simpel, klik order langsung masuk WA."</p>
+              <div class="user"><div class="avatar">D</div><div><b>Dina</b><span>Pelanggan Digital</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" id="faq">
+      <div class="wrap section-grid">
+        <div class="sec-label reveal">04 — FAQ</div>
+
+        <div>
+          <h2 class="sec-title reveal d1">Pertanyaan umum.</h2>
+
+          <div class="faq-list reveal d2">
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">Bagaimana cara order? <i>+</i></button>
+              <div class="faq-body"><p>Klik tombol Order pada produk yang kamu mau. Nanti langsung diarahkan ke WhatsApp admin dengan pesan otomatis.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">Bisa tanya dulu sebelum beli? <i>+</i></button>
+              <div class="faq-body"><p>Bisa. Klik tombol Order WhatsApp lalu tanyakan detail produk yang kamu butuhkan.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">Apakah tema tetap sama kalau keluar web? <i>+</i></button>
+              <div class="faq-body"><p>Iya. Tema disimpan otomatis di browser. Kalau pengguna memilih tema merah, saat masuk lagi tema tetap merah.</p></div>
+            </div>
+
+            <div class="faq-item">
+              <button class="faq-btn" onclick="toggleFaq(this)">Apakah website ini ringan di HP? <i>+</i></button>
+              <div class="faq-body"><p>Iya. Kode dibuat tanpa library berat, animasi tetap ringan, dan layout responsif untuk HP, tablet, serta desktop.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section class="section" id="kontak">
+      <div class="wrap">
+        <div class="cta-box reveal">
+          <div>
+            <div class="sec-label">05 — Kontak</div>
+            <h2>Siap order produk digital?</h2>
+            <p>Klik tombol WhatsApp untuk langsung menghubungi admin RIKI STORE. Semua order masuk dengan pesan otomatis.</p>
+            <a href="https://wa.me/6282320532450?text=Halo%20kak%2C%20saya%20mau%20order" target="_blank" class="btn btn-main">Chat Admin</a>
+          </div>
+
+          <div>
+            <div class="info-card"><small>Store</small><b>RIKI STORE</b></div>
+            <div class="info-card"><small>WhatsApp</small><b>+62 823-2053-2450</b></div>
+            <div class="info-card"><small>Status</small><b>Available</b></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="floating-mascot">
+    <div class="mini-mood" id="moodText">Normal 😄</div>
+
+    <div class="walk-stage">
+      <div class="mini-twins">
+        <div class="mini-kid kid-one">
+          <div class="mini-heat">☀️</div>
+          <div class="mini-cold">❄️</div>
+          <div class="mini-curl"></div>
+
+          <div class="mini-head">
+            <div class="mini-ear left-ear"></div>
+            <div class="mini-ear right-ear"></div>
+            <div class="mini-eye l"></div>
+            <div class="mini-eye r"></div>
+            <div class="mini-shine l"></div>
+            <div class="mini-shine r"></div>
+            <div class="mini-nose"></div>
+            <div class="mini-smile"></div>
+            <div class="mini-cheek l"></div>
+            <div class="mini-cheek r"></div>
+            <div class="mini-sweat">💧</div>
+          </div>
+
+          <div class="arm left"></div>
+          <div class="arm right"></div>
+          <div class="mini-body yellow-shirt"><span>R</span></div>
+          <div class="leg left"></div>
+          <div class="leg right"></div>
+        </div>
+
+        <div class="mini-kid kid-two">
+          <div class="mini-heat">🔥</div>
+          <div class="mini-cold">❄️</div>
+
+          <div class="mini-head">
+            <div class="mini-ear left-ear"></div>
+            <div class="mini-ear right-ear"></div>
+            <div class="mini-eye l"></div>
+            <div class="mini-eye r"></div>
+            <div class="mini-shine l"></div>
+            <div class="mini-shine r"></div>
+            <div class="mini-nose"></div>
+            <div class="mini-smile"></div>
+            <div class="mini-cheek l"></div>
+            <div class="mini-cheek r"></div>
+            <div class="mini-sweat">💧</div>
+          </div>
+
+          <div class="arm left"></div>
+          <div class="arm right"></div>
+          <div class="mini-body blue-shirt"><span>S</span></div>
+          <div class="leg left"></div>
+          <div class="leg right"></div>
+        </div>
+      </div>
+
+      <div class="walk-ground"></div>
+    </div>
+  </div>
+
+  <footer>
+    © 2026 RIKI STORE. PREMIUM DIGITAL STYLE.
+  </footer>
+
+  <script>
+    const nomorWA = "6282320532450";
+
+    const dataProduk = [
+      {
+        nama: "AM Prem",
+        kode: "AM",
+        harga: "5K",
+        sub: "Premium Editing",
+        badge: "Best",
+        desc: "Alight Motion Premium untuk kebutuhan edit video yang lebih nyaman, simple, dan maksimal.",
+        tags: ["Premium", "Editing", "Fast"],
+        benefit: ["Proses cepat", "Cocok untuk editor", "Admin fast respon"],
+        image: "https://files.catbox.moe/c941jn.jpeg"
+      },
+      {
+        nama: "Jasa Logo",
+        kode: "LOGO",
+        harga: "1k-10k",
+        sub: "Custom Design",
+        badge: "Custom",
+        desc: "Jasa logo custom untuk store, brand, squad,grub,dan kebutuhan digital lainnya.",
+        tags: ["Custom", "Design", "Brand"],
+        benefit: ["Bisa request konsep", "Hasil clean dan rapi", "Cocok untuk brand"],
+        image: "https://files.catbox.moe/ivyse3.jpeg"
+      },
+      {
+        nama: "APK Bioskop",
+        kode: "APK",
+        harga: "8K",
+        sub: "Digital Product",
+        badge: "Ready",
+        desc: "apk untuk hiburan,bisa di pakai saat kumpul banyak film bioskop",
+        tags: ["APK", "Digital", "Hiburan"],
+        benefit: ["Order mudah", "Proses cepat", "Admin siap bantu"],
+        image: "https://files.catbox.moe/xyysns.jpeg"
+      },
+      {
+        nama: "APK QRIS Free",
+        kode: "QRIS",
+        harga: "5K",
+        sub: "Digital Product",
+        badge: "New",
+        desc: "APK QRIS yang memiliki banyak menu-menu lain. Untuk kamu yang belum punya QRIS bisa pakai APK ini. Selain QRIS, APK ini juga punya banyak jualan lain seperti bot WhatsApp, Wink Premium, dan lainnya.",
+        tags: ["QRIS", "APK", "Jualan"],
+        benefit: ["Banyak menu tambahan", "Cocok untuk jualan digital", "Harga murah", "Admin fast respon"],
+        image: "https://files.catbox.moe/t04bnp.jpeg"
+      },
+      {
+        nama: "APK HD Foto Unli",
+        kode: "HD",
+        harga: "2K",
+        sub: "Photo Enhancer",
+        badge: "Murah",
+        desc: "Buat kamu yang punya foto blur, pakai APK ini aja. Dijamin HD dari percobaan pertama dan bisa dipakai untuk memperjelas foto.",
+        tags: ["HD Foto", "Unli", "Enhancer"],
+        benefit: ["Bisa HD-in foto blur", "Harga murah", "Cocok untuk edit foto", "Admin fast respon"],
+        image: "https://files.catbox.moe/j2e86o.jpeg"
+      }
+    ];
+
+    const productGrid = document.getElementById("productGrid");
+
+    function wa(nama) {
+      return "https://wa.me/" + nomorWA + "?text=" + encodeURIComponent("Halo kak, saya mau order " + nama);
+    }
+
+    function renderProduk() {
+      productGrid.innerHTML = dataProduk.map((p, i) => `
+        <article class="product-card reveal d${(i % 3) + 1}">
+          <div class="p-photo" onclick="openModal(${i})">
+            <img src="${p.image}" alt="Foto ${p.nama}" loading="lazy">
+          </div>
+
+          <h3 class="p-name">${p.nama}</h3>
+
+          <div class="p-price">Mulai ${p.harga}</div>
+
+          <div class="p-actions">
+            <a class="btn btn-main" href="${wa(p.nama)}" target="_blank">Beli</a>
+            <button class="btn btn-detail" onclick="openModal(${i})">Detail</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    renderProduk();
+
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalPrice = document.getElementById("modalPrice");
+    const modalDesc = document.getElementById("modalDesc");
+    const modalList = document.getElementById("modalList");
+    const modalOrder = document.getElementById("modalOrder");
+
+    function openModal(index) {
+      const p = dataProduk[index];
+      modalTitle.textContent = p.nama;
+      modalPrice.textContent = "Mulai " + p.harga;
+      modalDesc.textContent = p.desc;
+      modalList.innerHTML = p.benefit.map(item => `<div>${item}</div>`).join("");
+      modalOrder.href = wa(p.nama);
+      modalOrder.textContent = "Order " + p.nama;
+      modal.classList.add("on");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("on");
+      document.body.style.overflow = "";
+    }
+
+    const panel = document.getElementById("panel");
+    const overlay = document.getElementById("overlay");
+
+    function openPanel() {
+      panel.classList.add("on");
+      overlay.classList.add("on");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closePanel() {
+      panel.classList.remove("on");
+      overlay.classList.remove("on");
+      document.body.style.overflow = "";
+    }
+
+    function toggleFaq(btn) {
+      const body = btn.nextElementSibling;
+      const open = body.classList.contains("open");
+
+      document.querySelectorAll(".faq-body.open").forEach(item => item.classList.remove("open"));
+      document.querySelectorAll(".faq-btn.open").forEach(item => item.classList.remove("open"));
+
+      if (!open) {
+        body.classList.add("open");
+        btn.classList.add("open");
+      }
+    }
+
+    const themes = [
+      { cls: "", label: "Hitam", mood: "Normal 😄" },
+      { cls: "red-theme", label: "Merah", mood: "Panas 🥵" },
+      { cls: "blue-theme", label: "Biru", mood: "Dingin 🥶" }
+    ];
+
+    const themeBtn = document.getElementById("themeBtn");
+    const moodText = document.getElementById("moodText");
+
+    let themeIndex = Number(localStorage.getItem("rikiThemeSaved"));
+
+    if (Number.isNaN(themeIndex) || themeIndex < 0 || themeIndex >= themes.length) {
+      themeIndex = 0;
+    }
+
+    function applyTheme() {
+      document.body.classList.remove("red-theme", "blue-theme");
+
+      if (themes[themeIndex].cls) {
+        document.body.classList.add(themes[themeIndex].cls);
+      }
+
+      themeBtn.innerHTML = `<span>Tema</span><b>${themes[themeIndex].label}</b>`;
+      moodText.textContent = themes[themeIndex].mood;
+
+      localStorage.setItem("rikiThemeSaved", String(themeIndex));
+    }
+
+    function nextTheme() {
+      themeIndex = (themeIndex + 1) % themes.length;
+      applyTheme();
+    }
+
+    themeBtn.addEventListener("click", nextTheme);
+    applyTheme();
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("on");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .08 });
+
+    setTimeout(() => {
+      document.querySelectorAll(".reveal").forEach(el => obs.observe(el));
+      document.querySelectorAll(".reveal").forEach(el => {
+        if (el.getBoundingClientRect().top < innerHeight) {
+          el.classList.add("on");
+          obs.unobserve(el);
+        }
+      });
+    }, 80);
+
+    window.addEventListener("scroll", () => {
+      const d = document.documentElement;
+      const progress = (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100;
+      document.getElementById("bar").style.width = progress + "%";
+    });
+
+    setInterval(() => {
+      const online = document.getElementById("online");
+      online.textContent = Math.max(70, Number(online.textContent) + Math.floor(Math.random() * 5) - 2);
+    }, 4200);
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") {
+        closePanel();
+        closeModal();
+      }
+    });
+  </script>
+</body>
+</html>
